@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='styles.css'>
+    <title>Fitness Tracker</title>
+</head>
+
+<header>
+    Welcome (Name)!
+</header>
+
+<body>
+    <div id='wrapper' class="wrapper">
+    <div class="entries">
+        <div class="running sport">
+                <label for='time'>5k Time (mins)</label>
+                <input type='number' id='time'>
+        </div>
+        <table>
+            <thead>
+              <tr>
+                <th>Previous Entry</th>
+                <th>Gap</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>20 mins</td>
+                <td>32 secs</td>
+                <td>02/02/22</td>
+              </tr>
+              <tr>
+                <td>20 mins</td>
+                <td>32 secs</td>
+                <td>02/02/22</td>
+              </tr>
+              <tr>
+                <td>20 mins</td>
+                <td>32 secs</td>
+                <td>02/02/22</td>
+              </tr>
+              <tr>
+                <td>20 mins</td>
+                <td>32 secs</td>
+                <td>02/02/22</td>
+              </tr>
+              <tr>
+                <td>20 mins</td>
+                <td>32 secs</td>
+                <td>02/02/22</td>
+              </tr>
+            </tbody>
+            </table>
+    </div>
+
+    <div class="entries">
+        <div class="pullups sport">
+            <label for='pullup-amount'>Pullups (amount)</label>
+            <input type='number' id='pullup-amount'>
+        </div>
+    </div>
+        
+    <div class="entries">
+        <div class="hangboard sport">
+            <label for='hang-time'>Hang Time (secs)</label>
+            <input type='number' id='hang-time'>
+        </div>
+    </div>
+
+    <div class="entries">
+        <div class="weight sport">
+            <label for='weight'>Weight (lbs)</label>
+            <input type='number' id='weight'> 
+        </div>
+    </div>
+    </div>
+
+    <button id='submit'>SUBMIT</button>
+
+</div>
+    
+</body>
+<script src='index.js'></script>
+</html>
