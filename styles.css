@@ -75,6 +75,7 @@ input {
     border: 2px solid rgba(255, 255, 255, 0.424);
     text-align: center;
     background-color: rgba(122, 168, 172, 0.672);
+    color: white;
 }
 
 label {
@@ -96,11 +97,12 @@ table {
     bottom: 20px;
     background-color: rgba(127, 176, 161, 0.849);
     border-spacing: 0;
-    color: rgba(255, 255, 255, 0.84)
+    color: rgba(255, 255, 255, 0.84);
 }
 
 td, th{
     border: 1px solid rgba(255, 255, 255, 0.424);
+    
 }
 
 th {
