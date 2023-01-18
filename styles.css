@@ -47,6 +47,7 @@ body {
     gap: 2vh;
     background: radial-gradient(circle, rgba(127, 176, 161, 0.418) 0%, rgba(122, 168, 172, 0.672) 100%);
     border-radius: 10px;
+    min-height: 13em;
 }
 
 .sport {
@@ -98,6 +99,7 @@ table {
     background-color: rgba(127, 176, 161, 0.849);
     border-spacing: 0;
     color: rgba(255, 255, 255, 0.84);
+    max-height: 60%;
 }
 
 td, th{

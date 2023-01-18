@@ -35,7 +35,6 @@ submitBtn.addEventListener('click', function(){
 function renderRun() {
     const tableEl = document.getElementById('run-table')
     tableEl.innerHTML = ''
-    for (let i = 0; i < runEntries.length; i++){
 
         let num1 = runEntries.at(-1)
         let num2 = runEntries.at(-2)
@@ -46,6 +45,7 @@ function renderRun() {
         } else
             differenceRun.push(sum)
 
+            for (let i = 0; i < runEntries.length; i++){
 
         if (runEntries.length > 5) {
             runEntries.shift()
@@ -72,9 +72,7 @@ function renderRun() {
 function renderPullup() {
     const tableEl = document.getElementById('pullup-table')
     tableEl.innerHTML = ''
-    for (let i = 0; i < pullupEntries.length; i++){
-
-
+    
     let num1 = pullupEntries.at(-1)
     let num2 = pullupEntries.at(-2)
     let sum = num1 - num2
@@ -83,6 +81,8 @@ function renderPullup() {
         differencePullup.push("-----")
     } else
         differencePullup.push(sum)
+
+        for (let i = 0; i < pullupEntries.length; i++){
 
         if (pullupEntries.length > 5) {
             pullupEntries.shift()
@@ -150,7 +150,6 @@ function renderWeight() {
     const tableEl = document.getElementById('weight-table')
     tableEl.innerHTML = ''
     
-
     let num1 = weightEntries.at(-1)
     let num2 = weightEntries.at(-2)
     let sum = num1 - num2
