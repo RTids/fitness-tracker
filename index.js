@@ -7,6 +7,9 @@ let runEntries = []
 let pullupEntries = []
 let hangEntries = []
 let weightEntries = []
+let today = new Date().toLocaleDateString()
+
+console.log(today)
 
 submitBtn.addEventListener('click', function(){
     runEntries.push(runInput.value)
@@ -16,7 +19,8 @@ submitBtn.addEventListener('click', function(){
 
     renderRun()
     renderPullup()
-
+    renderHang()
+    renderWeight()
 
 })
 
@@ -34,7 +38,7 @@ function renderRun() {
             <tr>
                         <td>${runEntries[i]}</td>
                         <td>32</td>
-                        <td>02/02/22</td>
+                        <td>${today}</td>
                     </tr>
             `
         } else {
@@ -42,7 +46,7 @@ function renderRun() {
         <tr>
                     <td>${runEntries[i]}</td>
                     <td>32</td>
-                    <td>02/02/22</td>
+                    <td>${today}</td>
                 </tr>
         `
         }
@@ -63,7 +67,7 @@ function renderPullup() {
             <tr>
                         <td>${pullupEntries[i]}</td>
                         <td>32</td>
-                        <td>02/02/22</td>
+                        <td>${today}</td>
                     </tr>
             `
         } else {
@@ -71,7 +75,65 @@ function renderPullup() {
         <tr>
                     <td>${pullupEntries[i]}</td>
                     <td>32</td>
-                    <td>02/02/22</td>
+                    <td>${today}</td>
+                </tr>
+        `
+        }
+    }
+    
+}
+
+
+function renderHang() {
+    const tableEl = document.getElementById('hang-table')
+    tableEl.innerHTML = ''
+    for (let i = 0; i < hangEntries.length; i++){
+
+
+        if (hangEntries.length > 5) {
+            hangEntries.shift()
+            tableEl.innerHTML += `
+            <tr>
+                        <td>${hangEntries[i]}</td>
+                        <td>32</td>
+                        <td>${today}</td>
+                    </tr>
+            `
+        } else {
+        tableEl.innerHTML += `
+        <tr>
+                    <td>${hangEntries[i]}</td>
+                    <td>32</td>
+                    <td>${today}/td>
+                </tr>
+        `
+        }
+    }
+    
+}
+
+
+function renderWeight() {
+    const tableEl = document.getElementById('weight-table')
+    tableEl.innerHTML = ''
+    for (let i = 0; i < weightEntries.length; i++){
+
+
+        if (weightEntries.length > 5) {
+            weightEntries.shift()
+            tableEl.innerHTML += `
+            <tr>
+                        <td>${weightEntries[i]}</td>
+                        <td>32</td>
+                        <td>${today}</td>
+                    </tr>
+            `
+        } else {
+        tableEl.innerHTML += `
+        <tr>
+                    <td>${weightEntries[i]}</td>
+                    <td>32</td>
+                    <td>${today}</td>
                 </tr>
         `
         }
