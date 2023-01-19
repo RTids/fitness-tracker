@@ -14,8 +14,6 @@ let differenceHang = []
 let differencePullup = []
 
 
-console.log(today)
-
 submitBtn.addEventListener('click', function(){
 
     runEntries.push(runInput.value)
@@ -30,20 +28,23 @@ submitBtn.addEventListener('click', function(){
 
 })
 
+function checkDifference(array, differenceArray) {
+    let num1 = array.at(-1)
+    let num2 = array.at(-2)
+    let sum = num1 - num2
+
+    if (array.length <2){
+        differenceArray.push("-----")
+    } else
+        differenceArray.push(sum)
+}
 
 
 function renderRun() {
     const tableEl = document.getElementById('run-table')
     tableEl.innerHTML = ''
 
-        let num1 = runEntries.at(-1)
-        let num2 = runEntries.at(-2)
-        let sum = num1 - num2
-    
-        if (runEntries.length <2){
-            differenceRun.push("-----")
-        } else
-            differenceRun.push(sum)
+        checkDifference(runEntries, differenceRun)
 
             for (let i = 0; i < runEntries.length; i++){
 
@@ -73,14 +74,7 @@ function renderPullup() {
     const tableEl = document.getElementById('pullup-table')
     tableEl.innerHTML = ''
     
-    let num1 = pullupEntries.at(-1)
-    let num2 = pullupEntries.at(-2)
-    let sum = num1 - num2
-
-    if (pullupEntries.length <2){
-        differencePullup.push("-----")
-    } else
-        differencePullup.push(sum)
+    checkDifference(pullupEntries, differencePullup)
 
         for (let i = 0; i < pullupEntries.length; i++){
 
@@ -111,14 +105,7 @@ function renderHang() {
     const tableEl = document.getElementById('hang-table')
     tableEl.innerHTML = ''
 
-    let num1 = hangEntries.at(-1)
-    let num2 = hangEntries.at(-2)
-    let sum = num1 - num2
-
-    if (hangEntries.length <2){
-        differenceHang.push("-----")
-    } else
-        differenceHang.push(sum)
+    checkDifference(hangEntries, differenceHang)
 
     for (let i = 0; i < hangEntries.length; i++){
 
@@ -150,14 +137,7 @@ function renderWeight() {
     const tableEl = document.getElementById('weight-table')
     tableEl.innerHTML = ''
     
-    let num1 = weightEntries.at(-1)
-    let num2 = weightEntries.at(-2)
-    let sum = num1 - num2
-
-    if (weightEntries.length <2){
-        differenceWeight.push("-----")
-    } else
-        differenceWeight.push(sum)
+    checkDifference(weightEntries, differenceWeight)
 
 
     for (let i = 0; i < weightEntries.length; i++){
