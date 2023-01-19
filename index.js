@@ -15,19 +15,13 @@ let differencePullup = []
 
 
 submitBtn.addEventListener('click', function(){
-
-    runEntries.push(runInput.value)
-    pullupEntries.push(pullUpInput.value)
-    hangEntries.push(hangInput.value)
-    weightEntries.push(weightInput.value)
-
     renderRun()
     renderPullup()
     renderHang()
     renderWeight()
-
 })
 
+//Check difference between last 2 entries
 function checkDifference(array, differenceArray) {
     let num1 = array.at(-1)
     let num2 = array.at(-2)
@@ -39,129 +33,57 @@ function checkDifference(array, differenceArray) {
         differenceArray.push(sum)
 }
 
-
-function renderRun() {
-    const tableEl = document.getElementById('run-table')
+//Render Table + Values to the page
+function renderTable(element, entries, difference) {
+    const tableEl = document.getElementById(element)
     tableEl.innerHTML = ''
 
-        checkDifference(runEntries, differenceRun)
+            for (let i = 0; i < entries.length; i++){
 
-            for (let i = 0; i < runEntries.length; i++){
-
-        if (runEntries.length > 5) {
-            runEntries.shift()
+        if (entries.length > 5) {
+            entries.shift()
             tableEl.innerHTML += `
             <tr>
-                        <td>${runEntries[i]}</td>
-                        <td>${differenceRun[i]}</td>
+                        <td>${entries[i]}</td>
+                        <td>${difference[i]}</td>
                         <td>${today}</td>
                     </tr>
             `
         } else {
         tableEl.innerHTML += `
         <tr>
-                    <td>${runEntries[i]}</td>
-                    <td>${differenceRun[i]}</td>
+                    <td>${entries[i]}</td>
+                    <td>${difference[i]}</td>
                     <td>${today}</td>
                 </tr>
         `
         }
     }
+}
+
+function renderRun() {
+        runEntries.push(runInput.value)
+        checkDifference(runEntries, differenceRun)
+        renderTable('run-table', runEntries, differenceRun)
 }
 
 
 function renderPullup() {
-    const tableEl = document.getElementById('pullup-table')
-    tableEl.innerHTML = ''
-    
+    pullupEntries.push(pullUpInput.value)
     checkDifference(pullupEntries, differencePullup)
-
-        for (let i = 0; i < pullupEntries.length; i++){
-
-        if (pullupEntries.length > 5) {
-            pullupEntries.shift()
-            tableEl.innerHTML += `
-            <tr>
-                        <td>${pullupEntries[i]}</td>
-                        <td>${differencePullup[i]}</td>
-                        <td>${today}</td>
-                    </tr>
-            `
-        } else {
-        tableEl.innerHTML += `
-        <tr>
-                    <td>${pullupEntries[i]}</td>
-                    <td>${differencePullup[i]}</td>
-                    <td>${today}</td>
-                </tr>
-        `
-        }
-    }
-    
+    renderTable('pullup-table', pullupEntries, differencePullup)
 }
 
 
 function renderHang() {
-    const tableEl = document.getElementById('hang-table')
-    tableEl.innerHTML = ''
-
+    hangEntries.push(hangInput.value)
     checkDifference(hangEntries, differenceHang)
-
-    for (let i = 0; i < hangEntries.length; i++){
-
-
-        if (hangEntries.length > 5) {
-            hangEntries.shift()
-            tableEl.innerHTML += `
-            <tr>
-                        <td>${hangEntries[i]}</td>
-                        <td>${differenceHang[i]}</td>
-                        <td>${today}</td>
-                    </tr>
-            `
-        } else {
-        tableEl.innerHTML += `
-        <tr>
-                    <td>${hangEntries[i]}</td>
-                    <td>${differenceHang[i]}</td>
-                    <td>${today}</td>
-                </tr>
-        `
-        }
-    }
-    
+    renderTable('hang-table', hangEntries, differenceHang)
 }
 
 
 function renderWeight() {
-    const tableEl = document.getElementById('weight-table')
-    tableEl.innerHTML = ''
-    
+    weightEntries.push(weightInput.value)
     checkDifference(weightEntries, differenceWeight)
-
-
-    for (let i = 0; i < weightEntries.length; i++){
-
-
-        if (weightEntries.length > 5) {
-            weightEntries.shift()
-            tableEl.innerHTML += `
-            <tr>
-                        <td>${weightEntries[i]}</td>
-                        <td>${differenceWeight[i]}</td>
-                        <td>${today}</td>
-                    </tr>
-            `
-        } else {
-        tableEl.innerHTML += `
-        <tr>
-                    <td>${weightEntries[i]}</td>
-                    <td>${differenceWeight[i]}</td>
-                    <td>${today}</td>
-                </tr>
-        `
-        }
-
-    }
-    
+    renderTable ('weight-table', weightEntries, differenceWeight)  
 }
