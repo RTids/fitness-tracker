@@ -1,4 +1,5 @@
 const submitBtn = document.getElementById('submit')
+const clearBtn = document.getElementById('clear')
 const runInput = document.getElementById('run')
 const pullUpInput = document.getElementById('pullup-amount')
 const hangInput = document.getElementById('hang-time')
@@ -15,9 +16,8 @@ let differenceHang = JSON.parse(localStorage.getItem('hang-difference')) || []
 let differencePullup = JSON.parse(localStorage.getItem('pullup-difference')) || []
 let times = 5
 
-console.log(runEntries)
-console.log(differenceRun)
 
+//Render 5 entries in table on page when refreshed
   for (i = 0; i < times; i++){
     renderTable('run-table', runEntries, differenceRun)
     renderTable('pullup-table', pullupEntries, differencePullup)
@@ -25,7 +25,7 @@ console.log(differenceRun)
     renderTable('weight-table', weightEntries, differenceWeight)
   }
 
-
+//Update entries with new inputs
 submitBtn.addEventListener('click', function(){
     renderRun()
     renderPullup()
@@ -33,7 +33,12 @@ submitBtn.addEventListener('click', function(){
     renderWeight()
 })
 
-//Check difference between last 2 entries
+clearBtn.addEventListener('click', function() {
+    localStorage.clear()
+    location.reload()
+})
+
+//Check difference between last 2 entries also updates local storage for all entries
 
 function checkDifference(array, differenceArray, diffStorage, arrayName) {
 
