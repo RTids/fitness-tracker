@@ -42,11 +42,15 @@ function checkDifference(array, differenceArray, diffStorage, arrayName) {
     let num2 = array.at(-2)
     let sum = num1 - num2
 
+    if (differenceArray < 2){
+        differenceArray.push('-')
+    } else {
+
         differenceArray.push(sum)
         localStorage.setItem(arrayName, JSON.stringify(array))
         localStorage.setItem(diffStorage, JSON.stringify(differenceArray))
         localStorage.setItem('date', JSON.stringify(date))
-
+    }
 }
 
 //Render Table + Values to the page
