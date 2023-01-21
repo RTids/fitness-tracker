@@ -7,6 +7,7 @@ let runEntries = JSON.parse(localStorage.getItem('run')) || []
 let pullupEntries = JSON.parse(localStorage.getItem('pullup')) || []
 let hangEntries = JSON.parse(localStorage.getItem('hang')) || []
 let weightEntries = JSON.parse(localStorage.getItem('weight')) || []
+let date = JSON.parse(localStorage.getItem('date')) || []
 let today = new Date().toLocaleDateString()
 let differenceWeight = JSON.parse(localStorage.getItem('weight-difference')) || []
 let differenceRun = JSON.parse(localStorage.getItem('run-difference')) || []
@@ -44,6 +45,7 @@ function checkDifference(array, differenceArray, diffStorage, arrayName) {
         differenceArray.push(sum)
         localStorage.setItem(arrayName, JSON.stringify(array))
         localStorage.setItem(diffStorage, JSON.stringify(differenceArray))
+        localStorage.setItem('date', JSON.stringify(date))
 
 }
 
@@ -61,7 +63,7 @@ function renderTable(element, entries, difference) {
             <tr>
                         <td>${entries[i]}</td>
                         <td>${difference[i]}</td>
-                        <td>${today}</td>
+                        <td>${date[i]}</td>
                     </tr>
             `
         } else {
@@ -69,7 +71,7 @@ function renderTable(element, entries, difference) {
         <tr>
                     <td>${entries[i]}</td>
                     <td>${difference[i]}</td>
-                    <td>${today}</td>
+                    <td>${date[i]}</td>
                 </tr>
         `
         }
@@ -78,6 +80,7 @@ function renderTable(element, entries, difference) {
 
 function renderRun() {
         runEntries.push(runInput.value)
+        date.push(today)
         checkDifference(runEntries, differenceRun, 'run-difference', 'run')
         renderTable('run-table', runEntries, differenceRun)
 }
