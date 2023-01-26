@@ -5,6 +5,8 @@ I utilised new Javascript methods I had learnt, and with the use of Local Storag
 
 This was a lot of fun to make and really tested my current knowledge and Googling skills, as there were many steps where I felt completely stuck, but I persisted through and I am proud of the result.
 
+Live site: https://rtids.github.io/fitness-tracker/
+
 There are a few thing I will would like to do with this app in the future as my skills progress.
 
 - Make mobile responsive
