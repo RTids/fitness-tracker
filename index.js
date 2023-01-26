@@ -36,6 +36,7 @@ submitBtn.addEventListener('click', function(){
 clearBtn.addEventListener('click', function() {
     localStorage.clear()
     location.reload()
+    
 })
 
 //Check difference between last 2 entries also updates local storage for all entries
@@ -49,6 +50,9 @@ function checkDifference(array, differenceArray, diffStorage, arrayName) {
 
     if (differenceArray < 2){
         differenceArray.push('-')
+        localStorage.setItem(arrayName, JSON.stringify(array))
+        localStorage.setItem(diffStorage, JSON.stringify(differenceArray))
+        localStorage.setItem('date', JSON.stringify(date))
     } else {
 
         differenceArray.push(sum)
