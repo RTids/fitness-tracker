@@ -55,7 +55,7 @@ function checkDifference(array, differenceArray, diffStorage, arrayName) {
         localStorage.setItem('date', JSON.stringify(date))
     } else {
 
-        differenceArray.push(sum)
+        differenceArray.unshift(sum)
         localStorage.setItem(arrayName, JSON.stringify(array))
         localStorage.setItem(diffStorage, JSON.stringify(differenceArray))
         localStorage.setItem('date', JSON.stringify(date))
@@ -92,29 +92,29 @@ function renderTable(element, entries, difference) {
 }
 
 function renderRun() {
-        runEntries.push(runInput.value)
-        date.push(today)
+        runEntries.unshift(runInput.value)
+        date.unshift(today)
         checkDifference(runEntries, differenceRun, 'run-difference', 'run')
         renderTable('run-table', runEntries, differenceRun)
 }
 
 
 function renderPullup() {
-    pullupEntries.push(pullUpInput.value)
+    pullupEntries.unshift(pullUpInput.value)
     checkDifference(pullupEntries, differencePullup, 'pullup-difference', 'pullup')
     renderTable('pullup-table', pullupEntries, differencePullup)
 }
 
 
 function renderHang() {
-    hangEntries.push(hangInput.value)
+    hangEntries.unshift(hangInput.value)
     checkDifference(hangEntries, differenceHang, 'hang-difference', 'hang')
     renderTable('hang-table', hangEntries, differenceHang)
 }
 
 
 function renderWeight() {
-    weightEntries.push(weightInput.value)
+    weightEntries.unshift(weightInput.value)
     checkDifference(weightEntries, differenceWeight, 'weight-difference', 'weight')
     renderTable ('weight-table', weightEntries, differenceWeight)  
 }
