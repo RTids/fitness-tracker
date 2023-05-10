@@ -67,6 +67,7 @@ function renderTable(element, entries, difference) {
     const tableEl = document.getElementById(element)
     tableEl.innerHTML = ''
 
+        //this for loop reverses the order in which the array is rendered
             for (let i = entries.length - 1; i >= 0; i--){
 
         if (entries.length > 5) {
