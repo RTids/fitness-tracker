@@ -55,7 +55,7 @@ function checkDifference(array, differenceArray, diffStorage, arrayName) {
         localStorage.setItem('date', JSON.stringify(date))
     } else {
 
-        differenceArray.unshift(sum)
+        differenceArray.push(sum)
         localStorage.setItem(arrayName, JSON.stringify(array))
         localStorage.setItem(diffStorage, JSON.stringify(differenceArray))
         localStorage.setItem('date', JSON.stringify(date))
@@ -67,7 +67,7 @@ function renderTable(element, entries, difference) {
     const tableEl = document.getElementById(element)
     tableEl.innerHTML = ''
 
-            for (let i = 0; i < entries.length; i++){
+            for (let i = entries.length - 1; i >= 0; i--){
 
         if (entries.length > 5) {
             entries.shift()
@@ -92,29 +92,29 @@ function renderTable(element, entries, difference) {
 }
 
 function renderRun() {
-        runEntries.unshift(runInput.value)
-        date.unshift(today)
+        runEntries.push(runInput.value)
+        date.push(today)
         checkDifference(runEntries, differenceRun, 'run-difference', 'run')
         renderTable('run-table', runEntries, differenceRun)
 }
 
 
 function renderPullup() {
-    pullupEntries.unshift(pullUpInput.value)
+    pullupEntries.push(pullUpInput.value)
     checkDifference(pullupEntries, differencePullup, 'pullup-difference', 'pullup')
     renderTable('pullup-table', pullupEntries, differencePullup)
 }
 
 
 function renderHang() {
-    hangEntries.unshift(hangInput.value)
+    hangEntries.push(hangInput.value)
     checkDifference(hangEntries, differenceHang, 'hang-difference', 'hang')
     renderTable('hang-table', hangEntries, differenceHang)
 }
 
 
 function renderWeight() {
-    weightEntries.unshift(weightInput.value)
+    weightEntries.push(weightInput.value)
     checkDifference(weightEntries, differenceWeight, 'weight-difference', 'weight')
     renderTable ('weight-table', weightEntries, differenceWeight)  
 }
