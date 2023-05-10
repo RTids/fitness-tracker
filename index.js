@@ -48,7 +48,7 @@ function checkDifference(array, differenceArray, diffStorage, arrayName) {
     let num2 = array.at(-2)
     let sum = num1 - num2
 
-    if (differenceArray < 2){
+    if (differenceArray.length < 1){
         differenceArray.push('-')
         localStorage.setItem(arrayName, JSON.stringify(array))
         localStorage.setItem(diffStorage, JSON.stringify(differenceArray))
@@ -68,7 +68,7 @@ function renderTable(element, entries, difference) {
     tableEl.innerHTML = ''
 
         //this for loop reverses the order in which the array is rendered
-            for (let i = entries.length - 1; i >= 0; i--){
+            for (let i = 0; i < entries.length; i++){
 
         if (entries.length > 5) {
             entries.shift()
@@ -80,6 +80,7 @@ function renderTable(element, entries, difference) {
                         <td>${date[i]}</td>
                     </tr>
             `
+            console.log(i)
         } else {
         tableEl.innerHTML += `
         <tr>
@@ -88,6 +89,8 @@ function renderTable(element, entries, difference) {
                     <td>${date[i]}</td>
                 </tr>
         `
+
+        console.log(i)
         }
     }
 }
